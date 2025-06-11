@@ -18,7 +18,7 @@
 
     <style>
         /* -----------------------------------------------------------------
-        CSS - ESTILOS DA LANDING PAGE V5 (Layout Interativo)
+        CSS - ESTILOS DA LANDING PAGE V7 (Layout Interativo)
         ----------------------------------------------------------------- */
 
         :root {
@@ -61,7 +61,7 @@
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -71,6 +71,7 @@
             max-width: 600px;
             margin: 0 auto 3rem auto;
             color: var(--text-light);
+            font-size: 1.2rem;
         }
 
         .container {
@@ -79,14 +80,8 @@
             padding: 0 20px;
         }
         
-        .section {
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
         /* -------------------------
-           Seção de Abertura (Hero) com Fundo Interativo
+           Seção de Abertura (Hero)
            ------------------------- */
         .hero {
             height: 100vh;
@@ -95,6 +90,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
         #interactive-background {
@@ -107,6 +103,7 @@
         }
 
         .hero-content {
+            position: relative;
             z-index: 2;
         }
         
@@ -142,147 +139,43 @@
         }
         
         /* ---------------------------------
-           Seção Premium - Carrossel de Logos Infinito
+           NOVA Seção "Em Produção"
            --------------------------------- */
-        .premium-carousel-section {
+        .production-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background-color: var(--premium-bg);
-            padding: 120px 0;
-        }
-
-        @keyframes slide {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
-        }
-
-        .logos {
-            overflow: hidden;
-            padding: 60px 0;
-            background: var(--premium-bg);
-            white-space: nowrap;
             position: relative;
+            overflow: hidden;
         }
         
-        .logos:before,
-        .logos:after {
+        #plexus-background {
             position: absolute;
             top: 0;
-            width: 250px;
+            left: 0;
+            width: 100%;
             height: 100%;
-            content: "";
+            z-index: 1;
+        }
+
+        .production-content {
+            position: relative;
             z-index: 2;
         }
-
-        .logos:before {
-            left: 0;
-            background: linear-gradient(to left, rgba(10, 20, 44, 0), var(--premium-bg));
-        }
-
-        .logos:after {
-            right: 0;
-            background: linear-gradient(to right, rgba(10, 20, 44, 0), var(--premium-bg));
-        }
         
-        .logos-slide {
-            display: inline-block;
-            animation: 35s slide infinite linear;
-        }
-        
-        .logos-slide .logo-item {
-            height: 100px;
-            width: 250px; /* Largura do item do logo */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 40px;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            font-weight: 600;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        .logos-slide .logo-item:hover{
-            opacity: 1;
-        }
-
-        /* ----------------------------------
-           Seção Parceiros - Layout Charmoso
-           ---------------------------------- */
-        .labs-section {
-            background-color: var(--light-gray);
-        }
-        
-        .labs-section h2 {
-            color: var(--dark-blue);
-        }
-        .labs-section p.section-subtitle {
-            color: var(--text-color);
-        }
-
-        .charming-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .charm-card {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .charm-card .icon-wrapper {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-image: var(--gradient-premium);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-        }
-
-        .charm-card .lab-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--dark-blue);
-        }
-
-
         /* Animações de Rolagem */
         .animate-on-scroll {
             opacity: 0;
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
         }
         .animate-on-scroll.fade-in { transform: translateY(50px); }
-        .animate-on-scroll.slide-in-left { transform: translateX(-50px); }
-        .animate-on-scroll.slide-in-right { transform: translateX(50px); }
 
         .animate-on-scroll.is-visible {
             opacity: 1;
-            transform: translateX(0) translateY(0);
-        }
-        .charming-grid .charm-card.animate-on-scroll{
-             transition-delay: calc(var(--i, 0) * 50ms);
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .section {
-                padding: 80px 0;
-            }
-            .charming-grid {
-                grid-template-columns: 1fr;
-            }
-            .logos:before, .logos:after{
-                width: 100px;
-            }
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -296,29 +189,11 @@
     </header>
 
     <main>
-        <section class="section premium-carousel-section">
-            <div class="container">
-                <h2 class="animate-on-scroll fade-in">Destaques em Uberaba</h2>
-                <p class="section-subtitle animate-on-scroll fade-in" style="transition-delay: 0.1s;">Conheça os laboratórios com estrutura premium na capital do Zebu.</p>
-            </div>
-            <div class="logos">
-                <div class="logos-slide">
-                  <!-- Logos inseridos via JS -->
-                </div>
-                 <div class="logos-slide">
-                  <!-- Logos (cópia para loop) inseridos via JS -->
-                </div>
-            </div>
-        </section>
-
-        <section class="section labs-section">
-            <div class="container">
-                <h2 class="animate-on-scroll fade-in">Nossos Parceiros em Todo o Brasil</h2>
-                <p class="section-subtitle animate-on-scroll fade-in" style="transition-delay: 0.1s;">Uma rede completa de laboratórios de ponta à sua disposição.</p>
-                
-                <div class="charming-grid">
-                    <!-- Cards inseridos via JS -->
-                </div>
+        <section class="section production-section">
+            <div id="plexus-background"></div>
+            <div class="production-content container">
+                <h2 class="animate-on-scroll fade-in">Conectando o Futuro da FIV</h2>
+                <p class="section-subtitle animate-on-scroll fade-in" style="transition-delay: 0.2s;">Nossa rede de laboratórios parceiros está em plena expansão. Novidades em breve.</p>
             </div>
         </section>
     </main>
@@ -326,16 +201,10 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-        // --- DADOS ---
-        const labsUberaba = [
-            { name: 'Laboratório UberaFIV' }, { name: 'Gênesis Reprodução' },
-            { name: 'Embrião Central' }, { name: 'Nova Vida FIV' },
-            { name: 'FIV Genetics Prime' }, { name: 'BioEmbrião Tech' }, { name: 'ZebuGen' }
-        ];
-        const laboratoriosGerais = [
-            'VALE DO EMBRIÃO', 'MADER TETF', 'FERTILIFE IVF', 'REPRODUZ EMBRIÕES', 'EMBRIOVITA REPRODUÇÃO ANIMAL', 'ORIGENS BRA', 'SALT BIOTECH', 'CPEX EMBRIÕES', 'BH EMBRIÕES', 'SIMPLESGEN FARM', 'BA EMBRIÕES', 'PRO EMBRYO', 'GETAGEN', 'ORIGEM EMBRIÕES', 'GENE EMBRIÕES', 'EMBRYOPEC', 'CENATTE CUIABA', 'ESTROS REPRODUÇÃO', 'NORTE EMBRYO', 'ZEBU EMBRYO', 'NORDESTE IN VITRO', 'EMBRIOPEU', 'PECSA', 'EMBRYORIO', 'EMBRIOFACIL', 'BIO EMBRYO', 'ARCA EMBRIÕES', 'EMBRYOPATOS', 'EMBRIONAR', 'IN VITRO CERRADO', 'TECH EMBRYO', 'RONDO EMBRYO', 'EMBRIOTEC', 'EMBRIZA', 'FIORE EMBRIÕES', 'FIVET', 'CENATTE EMBRIÕES', 'GENEAL GENETICA', 'FUTURA REPRODUÇÃO', 'FIVX AMAZÔNIA', 'TRIÂNGULO EMBRIÕES', 'BARRA EMBRYO', 'PROCRIARE', 'BIOTEC', 'CENATTE CASTRO', 'APOYAR BIOTECH', 'AGRINDUS', 'PROGENE REPRODUÇÃO', 'FERTILIZE', 'CICLO REPRODUÇÃO ANIMAL', 'EMBRYOPLUS', 'NOVAGEN', 'IN VITRO XINGUARA', 'ABS PEC PLAN', 'IN VITRO ACRE', 'AGROOPEGEN', 'BOVINUSLAB', 'NORTE REBANHO', 'ARESE GENETICS', 'FAZENDA E LABORATÓRIO', 'BELO HORIZONTE'
-        ];
-        
+        // --- Variáveis Globais de Interação ---
+        let mouseX = 0, mouseY = 0;
+        let orientationX = 0, orientationY = 0;
+
         // --- 1. ANIMAÇÃO DE ENTRADA DO TÍTULO ---
         const titleElement = document.querySelector('.hero h1');
         const titleText = "Laboratórios FIV";
@@ -347,17 +216,14 @@
             titleElement.appendChild(span);
         });
 
-        // --- 2. FUNDO INTERATIVO COM THREE.JS E GIROSCÓPIO ---
-        let scene, camera, renderer, particles;
-        let mouseX = 0, mouseY = 0;
-        let orientationX = 0, orientationY = 0; // Para o giroscópio
-
-        function initThreeJS() {
+        // --- 2. FUNDO INTERATIVO HERO (Partículas) ---
+        function initHeroBackground() {
             const container = document.getElementById('interactive-background');
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+            if (!container) return;
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
             camera.position.z = 1000;
-
+            
             const particleCount = 5000;
             const particlesGeometry = new THREE.BufferGeometry();
             const posArray = new Float32Array(particleCount * 3);
@@ -365,93 +231,152 @@
                 posArray[i] = (Math.random() - 0.5) * 2000;
             }
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            
             const particleMaterial = new THREE.PointsMaterial({
-                size: 2,
-                color: 0x00c3ff,
-                transparent: true,
-                opacity: 0.7,
-                blending: THREE.AdditiveBlending
+                size: 2, color: 0x00c3ff, transparent: true,
+                opacity: 0.7, blending: THREE.AdditiveBlending
             });
-            particles = new THREE.Points(particlesGeometry, particleMaterial);
+            const particles = new THREE.Points(particlesGeometry, particleMaterial);
             scene.add(particles);
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particles.rotation.y += (mouseX * 0.00001) + (orientationY * 0.0005) + 0.0001;
+                particles.rotation.x += (mouseY * 0.00001) + (orientationX * 0.0005) + 0.0001;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        
+
+        // --- 3. FUNDO INTERATIVO "EM PRODUÇÃO" (Plexus) ---
+        function initPlexusBackground() {
+            const container = document.getElementById('plexus-background');
+            if (!container) return;
+            
+            let scene, camera, renderer, points, lines;
+            const PARTICLE_COUNT = 300;
+            
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
+            camera.position.z = 500;
+
+            // Pontos
+            const pMaterial = new THREE.PointsMaterial({
+                color: 0x00c3ff,
+                size: 4,
+                blending: THREE.AdditiveBlending,
+                transparent: true
+            });
+            const pGeometry = new THREE.BufferGeometry();
+            const positions = [];
+            const velocities = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                positions.push((Math.random() * 2 - 1) * 500); // x
+                positions.push((Math.random() * 2 - 1) * 500); // y
+                positions.push((Math.random() * 2 - 1) * 500); // z
+                velocities.push((Math.random() - 0.5) * 0.5);
+                velocities.push((Math.random() - 0.5) * 0.5);
+                velocities.push((Math.random() - 0.5) * 0.5);
+            }
+            pGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            pGeometry.setAttribute('velocity', new THREE.Float32BufferAttribute(velocities, 3));
+            points = new THREE.Points(pGeometry, pMaterial);
+            scene.add(points);
+
+            // Linhas
+            const lMaterial = new THREE.LineBasicMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.1
+            });
+            const lGeometry = new THREE.BufferGeometry();
+            lines = new THREE.LineSegments(lGeometry, lMaterial);
+            scene.add(lines);
 
             renderer = new THREE.WebGLRenderer({ alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x000000, 0);
             container.appendChild(renderer.domElement);
 
-            document.addEventListener('mousemove', onDocumentMouseMove);
-            window.addEventListener('resize', onWindowResize);
-            // Listener para o giroscópio do celular
-            window.addEventListener('deviceorientation', onDeviceOrientation, true);
-        }
+            function animate() {
+                requestAnimationFrame(animate);
 
-        function animate() {
-            requestAnimationFrame(animate);
-            // Combina movimento do mouse e do giroscópio
-            particles.rotation.y += (mouseX * 0.00001) + (orientationY * 0.0005) + 0.0001;
-            particles.rotation.x += (mouseY * 0.00001) + (orientationX * 0.0005) + 0.0001;
-            renderer.render(scene, camera);
+                const positions = points.geometry.attributes.position.array;
+                const velocities = points.geometry.attributes.velocity.array;
+                
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const i3 = i * 3;
+                    positions[i3] += velocities[i3];
+                    positions[i3 + 1] += velocities[i3 + 1];
+                    positions[i3 + 2] += velocities[i3 + 2];
+                    
+                    if (positions[i3] > 500 || positions[i3] < -500) velocities[i3] *= -1;
+                    if (positions[i3+1] > 500 || positions[i3+1] < -500) velocities[i3+1] *= -1;
+                    if (positions[i3+2] > 500 || positions[i3+2] < -500) velocities[i3+2] *= -1;
+                }
+                points.geometry.attributes.position.needsUpdate = true;
+
+                // Desenha as linhas
+                const linePositions = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+                        const i3 = i * 3;
+                        const j3 = j * 3;
+                        const dx = positions[i3] - positions[j3];
+                        const dy = positions[i3 + 1] - positions[j3 + 1];
+                        const dz = positions[i3 + 2] - positions[j3 + 2];
+                        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+                        if (dist < 100) {
+                            linePositions.push(positions[i3], positions[i3+1], positions[i3+2]);
+                            linePositions.push(positions[j3], positions[j3+1], positions[j3+2]);
+                        }
+                    }
+                }
+                lines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+                lines.geometry.attributes.position.needsUpdate = true;
+                
+                // Interação
+                scene.rotation.y += (mouseX * 0.000005) + (orientationY * 0.001);
+                scene.rotation.x += (mouseY * 0.000005) + (orientationX * 0.001);
+
+                renderer.render(scene, camera);
+            }
+            animate();
+            
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
         }
         
+        // --- LISTENERS GLOBAIS DE INTERAÇÃO ---
         function onDocumentMouseMove(event) {
             mouseX = event.clientX - (window.innerWidth / 2);
             mouseY = event.clientY - (window.innerHeight / 2);
         }
-        
         function onDeviceOrientation(event) {
-            // Beta: inclinação frente-trás (-180 a 180)
-            // Gamma: inclinação esquerda-direita (-90 a 90)
             orientationX = event.beta ? event.beta / 180 : 0;
             orientationY = event.gamma ? event.gamma / 90 : 0;
         }
+        document.addEventListener('mousemove', onDocumentMouseMove);
+        window.addEventListener('deviceorientation', onDeviceOrientation, true);
 
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
+        // --- INICIALIZAÇÃO DAS ANIMAÇÕES E OBSERVER ---
+        initHeroBackground();
+        initPlexusBackground();
 
-        initThreeJS();
-        animate();
-
-
-        // --- 3. CARROSSEL DE LOGOS INFINITO ---
-        const logosContainer = document.querySelector(".logos-slide");
-        if(logosContainer) {
-            labsUberaba.forEach(lab => {
-                const logoItem = document.createElement("div");
-                logoItem.className = "logo-item";
-                // Usando um ícone como placeholder para o logo
-                logoItem.innerHTML = `<i class="fa-solid fa-flask-vial"></i> &nbsp; ${lab.name}`;
-                logosContainer.appendChild(logoItem);
-            });
-        }
-        
-
-        // --- 4. LAYOUT CHARMOSO COM ANIMAÇÃO ---
-        const gridContainer = document.querySelector('.charming-grid');
-        if(gridContainer){
-            laboratoriosGerais.forEach((nome, index) => {
-                const card = document.createElement('div');
-                card.className = 'charm-card animate-on-scroll';
-                // Adiciona a animação correta baseada se o item é par ou ímpar
-                card.classList.add(index % 2 === 0 ? 'slide-in-left' : 'slide-in-right');
-                card.style.setProperty('--i', index);
-
-                card.innerHTML = `
-                    <div class="icon-wrapper">
-                        <i class="fa-solid fa-dna"></i>
-                    </div>
-                    <div class="lab-name">${nome}</div>
-                `;
-                gridContainer.appendChild(card);
-            });
-        }
-        
-
-        // --- 5. ANIMAÇÃO NA ROLAGEM GERAL ---
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
